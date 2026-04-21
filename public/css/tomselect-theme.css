@@ -1,0 +1,174 @@
+/**
+ * Tom Select DaisyUI Theme Overrides
+ * Standardizes all searchable dropdowns to match DaisyUI inputs and dark themes.
+ */
+
+/* High-Specificity Reset for DaisyUI-Classed Wrappers */
+.ts-wrapper.select, 
+.ts-wrapper.select-sm, 
+.ts-wrapper.select-lg,
+.ts-wrapper.input,
+.ts-wrapper.input-sm {
+    @apply border-none p-0 m-0 !important;
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+/* Core Wrapper Reset */
+.ts-wrapper {
+    @apply border-none p-0 m-0 !important;
+    background: transparent !important;
+    background-image: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    min-width: 100px !important; /* Force a minimum width for all dropdowns */
+    display: block !important;
+    position: relative !important;
+}
+
+.ts-wrapper.single .ts-control {
+    background-color: oklch(var(--b1)) !important;
+    color: oklch(var(--bc)) !important;
+    border: 1px solid oklch(var(--bc) / 0.1) !important;
+    border-radius: var(--rounded-btn, 0.5rem) !important;
+    min-height: 3rem !important;
+    padding: 0 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none !important;
+    position: relative !important;
+    width: 100% !important;
+    font-size: 0.875rem !important; /* Standard DaisyUI (14px) */
+}
+
+/* Base normalization for internal items */
+.ts-control > div, 
+.ts-control > input {
+    font-size: inherit !important;
+}
+
+/* Clean Variant Normalization (No Arrows) */
+.select-sm + .ts-wrapper .ts-control,
+.select-sm.ts-wrapper .ts-control {
+    min-height: 2.25rem !important;
+    font-size: 0.75rem !important; /* matches text-xs (12px) */
+    padding: 0 0.75rem !important;
+}
+
+.select-lg + .ts-wrapper .ts-control,
+.select-lg.ts-wrapper .ts-control {
+    min-height: 4rem !important;
+    font-size: 1.125rem !important; /* matches text-lg (18px) */
+    padding: 0 1.5rem !important;
+}
+
+/* Focus State Matching DaisyUI */
+.ts-wrapper.single.focus .ts-control {
+    @apply border-primary ring-1 ring-primary/20 !important;
+}
+
+/* Input Field: Responsive & Theme-Aware */
+.ts-control input {
+    color: oklch(var(--bc)) !important;
+    background: transparent !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    border: none !important;
+    outline: none !important;
+    flex: 1 1 auto !important;
+    min-width: 2px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Selected Item: Strictly Single Line with Ellipsis */
+.ts-wrapper.single.has-items .ts-control > div {
+    color: oklch(var(--bc)) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: calc(100% - 0.5rem) !important;
+    line-height: normal !important;
+}
+
+/* Dropdown Menu: Glassmorphism / Theme-Aware */
+.ts-dropdown {
+    background-color: oklch(var(--b1) / 0.95) !important;
+    backdrop-filter: blur(16px);
+    border: 1px solid oklch(var(--bc) / 0.1) !important;
+    border-radius: var(--rounded-box, 1rem) !important;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+    z-index: 100 !important;
+    overflow: hidden !important;
+    display: none;
+    margin-top: 0.25rem !important;
+}
+
+/* Force hide when the wrapper is not active to prevent rogue borders */
+.ts-wrapper:not(.dropdown-active) .ts-dropdown {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Original Select: Total Suppression */
+.ts-wrapper select,
+.ts-wrapper .select,
+.ts-wrapper .select-sm {
+    display: none !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Options with generous padding */
+.ts-dropdown .option {
+    padding: 0.65rem 1rem !important;
+    border-radius: var(--rounded-btn, 0.5rem) !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    font-size: 0.875rem !important;
+    color: oklch(var(--bc)) !important;
+}
+
+/* Facebook-style Active Highlight */
+.ts-dropdown .option.active, 
+.ts-dropdown .option:hover {
+    background-color: oklch(var(--p)) !important;
+    color: oklch(var(--pc)) !important;
+}
+
+/* No Results Message Positioning */
+.ts-dropdown .no-results {
+    padding: 1.5rem 1rem !important;
+    color: oklch(var(--bc) / 0.4) !important;
+    font-style: italic !important;
+    font-size: 0.875rem !important;
+    text-align: center !important;
+}
+
+/* Original Select: Total Suppression to prevent 'ghost lines' */
+.ts-wrapper select {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    opacity: 0 !important;
+}
+
+/* Clear Button */
+.ts-wrapper.single .clear-button {
+    @apply text-base-content/30 hover:text-error transition-colors !important;
+    right: 2.5rem !important;
+    font-size: 1.2rem !important;
+}
