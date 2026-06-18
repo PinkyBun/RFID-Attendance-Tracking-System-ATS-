@@ -15,8 +15,15 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="min-h-screen bg-base-200 flex items-center justify-center p-4">
-    <div class="w-full max-w-md">
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-slate-50">
+    <!-- Geometric Background Pattern -->
+    <div class="absolute inset-0 z-0 opacity-40" style="background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+    
+    <!-- Soft Gradient Orbs -->
+    <div class="absolute top-[10%] left-[20%] w-[30rem] h-[30rem] bg-info/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+    <div class="absolute bottom-[10%] right-[20%] w-[30rem] h-[30rem] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+
+    <div class="w-full max-w-md z-10 relative">
         <?= $this->renderSection('content') ?>
     </div>
 </body>

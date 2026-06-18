@@ -41,6 +41,12 @@ $routes->delete('subjects/schedule/(:num)',    'Subjects\SubjectController::remo
 
 // ─── Students ─────────────────────────────────────────────────────────────────
 $routes->get   ('students',                   'Students\StudentController::index',          ['as' => 'students.index']);
+$routes->get   ('students/export',            'Students\StudentController::exportExcel',    ['as' => 'students.export']);
+$routes->get   ('students/import',            'Students\StudentController::import',         ['as' => 'students.import']);
+$routes->get   ('students/import/template',   'Students\StudentController::downloadTemplate', ['as' => 'students.import.template']);
+$routes->post  ('students/import/process',    'Students\StudentController::processImport',  ['as' => 'students.import.process']);
+$routes->get   ('students/rfid-assign',       'Students\StudentController::rfidAssign',     ['as' => 'students.rfid_assign']);
+$routes->post  ('students/rfid-assign/capture','Students\StudentController::captureRfid',    ['as' => 'students.rfid_assign.capture']);
 $routes->get   ('students/(:num)',            'Students\StudentController::show/$1',        ['as' => 'students.show']);
 $routes->get   ('students/create/regular',    'Students\StudentController::createRegular',  ['as' => 'students.create.regular']);
 $routes->post  ('students/regular',           'Students\StudentController::storeRegular',   ['as' => 'students.store.regular']);

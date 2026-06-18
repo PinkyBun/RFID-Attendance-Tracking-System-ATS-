@@ -85,7 +85,7 @@
                                     </span>
                                 </td>
                                 <td class="text-right">
-                                    <div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <div class="flex justify-end gap-1">
                                         <a href="<?= url_to('attendance.edit', $record['id']) ?>" class="btn btn-ghost btn-xs text-info">Edit</a>
                                         <a href="<?= url_to('students.show', $record['student_id']) ?>" class="btn btn-ghost btn-xs">Profile</a>
                                     </div>

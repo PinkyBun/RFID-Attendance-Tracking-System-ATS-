@@ -7,6 +7,10 @@
         <p class="text-base-content/60">View and manage all registered students</p>
     </div>
     <div class="flex gap-2">
+        <button onclick="export_modal.showModal()" class="btn btn-success text-success-content shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            Export
+        </button>
         <a href="<?= url_to('students.create.regular') ?>" class="btn btn-primary shadow-lg">
             Register Regular
         </a>
@@ -15,6 +19,36 @@
         </a>
     </div>
 </div>
+
+<dialog id="export_modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg mb-4">Export Enrolled Students</h3>
+        <form action="<?= url_to('students.export') ?>" method="GET">
+            <div class="form-control w-full mb-4">
+                <label class="label"><span class="label-text font-bold">Select Subject</span></label>
+                <select name="subject_id" class="select select-bordered w-full" required>
+                    <option value="" disabled selected>Select Subject...</option>
+                    <?php foreach($subjects as $sub): ?>
+                        <option value="<?= $sub['id'] ?>"><?= esc($sub['code']) ?> - <?= esc($sub['name']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-control w-full mb-6">
+                <label class="label"><span class="label-text font-bold">Select Section</span></label>
+                <select name="section_id" class="select select-bordered w-full" required>
+                    <option value="" disabled selected>Select Section...</option>
+                    <?php foreach($sections as $sec): ?>
+                        <option value="<?= $sec['id'] ?>"><?= esc($sec['name']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="modal-action mt-6">
+                <button type="button" class="btn text-base-content/70" onclick="export_modal.close()">Cancel</button>
+                <button type="submit" class="btn btn-primary px-8 text-primary-content">Download Excel</button>
+            </div>
+        </form>
+    </div>
+</dialog>
 
 <div class="card bg-base-100 shadow rounded-2xl overflow-hidden">
     <div class="card-body p-0">

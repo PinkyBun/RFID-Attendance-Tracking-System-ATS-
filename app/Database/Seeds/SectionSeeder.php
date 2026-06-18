@@ -16,9 +16,21 @@ class SectionSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
-                'name'       => 'BSIT 4B',
+                'name'       => 'BSIT 3B',
                 'course'     => 'Bachelor of Science in Information Technology',
-                'year_level' => 4,
+                'year_level' => 3,
+                'created_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name'       => 'BSIT 2C',
+                'course'     => 'Bachelor of Science in Information Technology',
+                'year_level' => 2,
+                'created_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name'       => 'BSIT 1D',
+                'course'     => 'Bachelor of Science in Information Technology',
+                'year_level' => 1,
                 'created_at' => date('Y-m-d H:i:s')
             ],
             [
