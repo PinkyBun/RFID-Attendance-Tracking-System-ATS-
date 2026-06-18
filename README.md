@@ -149,10 +149,6 @@ Follow these steps to set up the project locally.
 
 This project was developed as part of a university course requirement, specifically for **Systems Integration and Architecture 2 (SIA2)**. It serves as a practical implementation of system design, database management, and hardware integration (RFID) within a modern web framework.
 
-**Team / Contributors:**
-- [TODO: Add Team Member 1 Name & Role]
-- [TODO: Add Team Member 2 Name & Role]
-- [TODO: Add Team Member 3 Name & Role]
 
 ## 🤝 Contributing
 
